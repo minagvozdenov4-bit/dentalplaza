@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-8567fc43-f816-4cf2-960a-752b7c6c2fcd/styles.css">
+<script src="_ds/modernist-8567fc43-f816-4cf2-960a-752b7c6c2fcd/_ds_bundle.js"></script>
+<script src="./page-fx.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-heading:"Poppins",system-ui,sans-serif;
+  --font-body:"Poppins",system-ui,sans-serif;
+  --font-heading-weight:600;
+  --color-bg:#f2f8f4;
+  --color-surface:#ffffff;
+  --color-text:#123a2a;
+  --color-accent:#3cab59;
+  --color-accent-700:#237038;
+  --radius-md:20px;
+}
+body{margin:0;background:#f2f8f4;color:#123a2a;font-family:"Poppins",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:"Poppins",system-ui,sans-serif;font-weight:600;letter-spacing:-.015em;line-height:1.18;margin:0}
+a{color:#237038;text-decoration:none}
+a:hover{color:#17492a}
+input,select,textarea,button{font-family:"Poppins",system-ui,sans-serif}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #3cab59;outline-offset:2px}
+input::placeholder,textarea::placeholder{color:#9bb0a4}
+.lnk:hover{color:#3cab59}
+.card-lift{transition:transform .22s ease,box-shadow .22s ease}
+.card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(18,58,42,.10)}
+.card-lift:hover .svc-arrow{background:#3cab59;border-color:#3cab59}
+.card-lift:hover .svc-arrow svg{stroke:#fff}
+.sub-link:hover{background:#3cab59 !important;color:#fff !important}
+.btn-g{transition:background .18s ease}
+.btn-g:hover{background:#2f8b48 !important}
+.btn-w:hover{background:#f2f8f4 !important}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+details[open] .plus{transform:rotate(45deg)}
+details[open].faq-row{box-shadow:0 10px 30px rgba(18,58,42,.08)}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-thumb{background:#cfe8d8;border-radius:8px}
+@media(max-width:960px){
+ header{padding-top:30px !important}
+ header .pad > div:first-child{padding:8px 8px 8px 14px !important;gap:10px !important;justify-content:space-between}
+ header .pad > div:first-child > a.btn-g{padding:11px 16px !important;font-size:13.5px !important;white-space:nowrap;line-height:1.2}
+ .two{grid-template-columns:1fr !important}
+ .g2{grid-template-columns:1fr !important}
+ .g3{grid-template-columns:1fr 1fr !important}
+ .g4{grid-template-columns:1fr 1fr !important}
+ .navlinks{display:none !important}
+ .burger{display:inline-flex !important}
+ .pad{padding-left:20px !important;padding-right:20px !important}
+ .h1{font-size:38px !important}
+ .h2{font-size:28px !important}
+ .heroimg{height:300px !important;min-height:0 !important}
+}
+@media(max-width:620px){.g3,.g4{grid-template-columns:1fr !important}}
+</style>
+</helmet>
+
+<div style="background:#f2f8f4;color:#123a2a;font-family:'Poppins',system-ui,sans-serif">
+
+<header style="position:sticky;top:0;z-index:120;background:rgba(242,248,244,.92);backdrop-filter:blur(10px);padding:14px 0">
+  <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="background:#fff;border-radius:999px;box-shadow:0 6px 24px rgba(18,58,42,.07);padding:10px 12px 10px 24px;display:flex;align-items:center;gap:24px">
+      <a href="#pocetna" style="display:flex;align-items:center;flex:none"><img src="assets/logo.png" alt="Dental Plaza" style="height:30px;width:auto"></a>
+      <nav class="navlinks" style="display:flex;align-items:center;justify-content:center;gap:28px;flex:1">
+        <a href="#pocetna" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Početna</a>
+        <a href="#usluge" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Usluge</a>
+        <a href="o-nama.html" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">O nama</a>
+        <a href="galerija.html#galerija" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Galerija</a>
+        <a href="cenovnik.html#cenovnik" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Cenovnik</a>
+        <a href="#kontakt" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Kontakt</a>
+      </nav>
+      <a href="#zakazivanje" class="btn-g" style="flex:none;background:#3cab59;color:#fff;font-size:14px;font-weight:500;padding:12px 22px;border-radius:999px">Pozovite nas</a>
+      <button type="button" class="burger" onClick="{{ toggleMenu }}" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:#eef6f1;border:0;cursor:pointer;flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#123a2a" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </div>
+    <div style="display:{{ menuDisplay }};background:#fff;border-radius:22px;box-shadow:0 12px 32px rgba(18,58,42,.10);margin-top:10px;padding:10px 18px">
+      <a href="#pocetna" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Početna</a>
+      <a href="#usluge" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Usluge</a>
+      <a href="o-nama.html" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">O nama</a>
+      <a href="galerija.html#galerija" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Galerija</a>
+      <a href="cenovnik.html#cenovnik" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Cenovnik</a>
+      <a href="#kontakt" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<section id="pocetna" class="pad" style="max-width:1240px;margin:0 auto;padding:56px 32px 24px">
+  <div class="two" style="display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:end;margin-bottom:44px">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#e6f4eb;color:#237038;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:500;margin-bottom:22px">
+        <span style="width:7px;height:7px;border-radius:999px;background:#3cab59"></span>
+        Skenderbegova 3, Beograd
+      </div>
+      <h1 class="h1" style="font-size:58px;line-height:1.08;max-width:14ch">Zdrav osmeh počinje poverenjem.</h1>
+    </div>
+    <div>
+      <p style="font-size:17px;color:#5c7268;max-width:42ch;margin:0 0 24px">Savremena stomatologija, individualan pristup i kompletna briga o vašem osmehu na jednom mestu.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#zakazivanje" class="btn-g" style="display:inline-flex;align-items:center;gap:9px;background:#3cab59;color:#fff;font-size:15px;font-weight:500;padding:15px 26px;border-radius:999px">
+          Pozovite nas
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a href="o-nama.html" class="btn-w" style="display:inline-flex;align-items:center;background:#fff;color:#123a2a;font-size:15px;font-weight:500;padding:15px 26px;border-radius:999px;box-shadow:0 4px 18px rgba(18,58,42,.06)">Upoznajte Dental Plaza</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="two" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:stretch">
+    <div style="background:#fff;border-radius:26px;padding:32px;box-shadow:0 10px 34px rgba(18,58,42,.07)">
+      <h3 style="font-size:21px;margin-bottom:4px">Zakažite termin</h3>
+      <p style="font-size:14px;color:#5c7268;margin:0 0 22px">Javljamo se istog radnog dana.</p>
+      <form onSubmit="{{ onSubmit }}">
+        <div style="display:grid;gap:12px">
+          <input type="text" name="ime" placeholder="Ime i prezime" required="required" style="width:100%;font-size:15px;padding:15px 18px;border:1px solid #dce9e2;border-radius:14px;background:#fbfdfc;color:#123a2a">
+          <input type="tel" name="telefon" placeholder="Broj telefona" required="required" style="width:100%;font-size:15px;padding:15px 18px;border:1px solid #dce9e2;border-radius:14px;background:#fbfdfc;color:#123a2a">
+          <select name="usluga" style="width:100%;font-size:15px;padding:15px 18px;border:1px solid #dce9e2;border-radius:14px;background:#fbfdfc;color:#123a2a">
+            <option>Nisam siguran/na, savetujte me</option>
+            <option>Implantologija</option>
+            <option>Oralna hirurgija</option>
+            <option>Stomatološka protetika</option>
+            <option>Parodontologija</option>
+            <option>Restaurativna i estetska stomatologija</option>
+            <option>Preventivna i dečija stomatologija</option>
+          </select>
+          <input type="text" name="termin" placeholder="Željeni dan i vreme (opciono)" style="width:100%;font-size:15px;padding:15px 18px;border:1px solid #dce9e2;border-radius:14px;background:#fbfdfc;color:#123a2a">
+          <button type="submit" class="btn-g" style="width:100%;font-size:15px;font-weight:500;color:#fff;background:#3cab59;border:0;padding:16px 24px;border-radius:999px;cursor:pointer">Pošaljite zahtev</button>
+          <div style="display:{{ sentDisplay }};background:#e6f4eb;border-radius:14px;padding:13px 16px;font-size:14px;color:#17492a">Hvala, zahtev je zabeležen. Kontaktiraćemo vas na ostavljeni broj telefona.</div>
+          <p style="font-size:12.5px;color:#8aa094;margin:2px 0 0">Ili nam odmah pišite na <a href="https://api.whatsapp.com/send?phone=381638004400" target="_blank" rel="noopener" style="font-weight:500">WhatsApp</a> i <a href="viber://chat?number=%2B381638004400" style="font-weight:500">Viber</a>, call centar radi 08 do 21h.</p>
+        </div>
+      </form>
+    </div>
+    <div class="heroimg" style="position:relative;border-radius:26px;overflow:hidden;min-height:520px">
+      <img src="uploads/photos-1786532907247-85yw.webp" alt="Čekaonica klinike Dental Plaza" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div style="position:absolute;left:24px;bottom:24px;right:24px;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-radius:20px;padding:18px 22px;display:flex;flex-wrap:wrap;gap:26px;align-items:center">
+        <div><div style="font-size:22px;font-weight:600;color:#3cab59;line-height:1.1">{{ stat1 }}</div><div style="font-size:12.5px;color:#5c7268">doktora</div></div>
+        <div><div style="font-size:22px;font-weight:600;color:#3cab59;line-height:1.1">{{ stat2 }}</div><div style="font-size:12.5px;color:#5c7268">ordinacija</div></div>
+        <div><div style="font-size:22px;font-weight:600;color:#3cab59;line-height:1.1">{{ stat3 }}</div><div style="font-size:12.5px;color:#5c7268">nova klinika</div></div>
+        <div><div style="font-size:22px;font-weight:600;color:#3cab59;line-height:1.1">{{ stat4 }}</div><div style="font-size:12.5px;color:#5c7268">implanata</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="usluge" class="pad" style="max-width:1240px;margin:0 auto;padding:72px 32px 24px">
+  <div class="two" style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:34px">
+    <div>
+      <h2 class="h2" style="font-size:38px;max-width:20ch;margin-bottom:10px">Kompletna stomatologija pod jednim krovom</h2>
+      <p style="font-size:16px;color:#5c7268;max-width:52ch;margin:0">Od prvog pregleda do složene implantološke rekonstrukcije, sve u istoj klinici, uz sopstvenu zubnu laboratoriju.</p>
+    </div>
+    <a href="#usluge" class="btn-w" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#123a2a;font-size:14.5px;font-weight:500;padding:14px 24px;border-radius:999px;box-shadow:0 4px 18px rgba(18,58,42,.06);white-space:nowrap;justify-self:start">Sve usluge →</a>
+  </div>
+  <div class="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start">
+    <div class="card-lift" style="background:#e6f4eb;border-radius:24px;padding:28px;color:#123a2a;min-height:196px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px"><span style="width:46px;height:46px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="1.8"><path d="M12 3v18M7 8h10M8 21c-1.5-3-2-6-2-9a6 6 0 0 1 12 0c0 3-.5 6-2 9"></path></svg></span><button type="button" onClick="{{ toggleImp }}" aria-label="Prikaži tretmane" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ impRot }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button></div>
+      <h3 style="font-size:20px;margin-bottom:0">Implantologija</h3>
+      <div style="display:{{ impDisplay }};margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,58,42,.12);gap:8px;grid-template-columns:1fr">
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Implanti</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">3D ortopan</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Pterigoidni implant</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Teeth in Hour</a>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:28px;color:#123a2a;min-height:196px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px"><span style="width:46px;height:46px;border-radius:14px;background:#e6f4eb;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="1.8"><path d="M14 4l6 6-9 9H5v-6z"></path></svg></span><button type="button" onClick="{{ toggleOh }}" aria-label="Prikaži tretmane" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ ohRot }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button></div>
+      <h3 style="font-size:20px;margin-bottom:0">Oralna hirurgija</h3>
+      <div style="display:{{ ohDisplay }};margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,58,42,.12);gap:8px;grid-template-columns:1fr">
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Apikotomija</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Frenektomija</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Hirurško vađenje zuba</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Sinus lift</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Augmentacija grebena</a>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#e6f4eb;border-radius:24px;padding:28px;color:#123a2a;min-height:196px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px"><span style="width:46px;height:46px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="1.8"><path d="M4 9h16M6 9V6h12v3M9 20V9M15 20V9"></path></svg></span><button type="button" onClick="{{ togglePr }}" aria-label="Prikaži tretmane" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ prRot }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button></div>
+      <h3 style="font-size:20px;margin-bottom:0">Stomatološka protetika</h3>
+      <div style="display:{{ prDisplay }};margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,58,42,.12);gap:7px;grid-template-columns:1fr 1fr">
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">CAD/CAM tehnologija</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Cirkonijum keramika</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Metal keramika</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Keramički viniri</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Keramičke plombe</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Zlatne plombe</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Keramika na zlatu</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Titanijumska keramika</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Privremene zaštitne krune</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Totalna proteza</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Parcijalna proteza</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a">Reparatura</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:10px 13px;font-size:13.5px;font-weight:500;line-height:1.35;color:#123a2a;grid-column:span 2">Proteze na zubnim implantima</a>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:28px;color:#123a2a;min-height:196px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px"><span style="width:46px;height:46px;border-radius:14px;background:#e6f4eb;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="1.8"><path d="M12 21s-7-4.4-7-9.5A4.5 4.5 0 0 1 12 8a4.5 4.5 0 0 1 7 3.5C19 16.6 12 21 12 21z"></path></svg></span><button type="button" onClick="{{ togglePd }}" aria-label="Prikaži tretmane" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ pdRot }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button></div>
+      <h3 style="font-size:20px;margin-bottom:0">Parodontologija</h3>
+      <div style="display:{{ pdDisplay }};margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,58,42,.12);gap:8px;grid-template-columns:1fr">
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Uklanjanje zubnog kamenca</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Terapija gingivitisa</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Obrada parodontalnog džepa</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Gummy smile</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Parodontalna hirurgija</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Menadžment mekog tkiva</a>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#e6f4eb;border-radius:24px;padding:28px;color:#123a2a;min-height:196px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px"><span style="width:46px;height:46px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="1.8"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4L7.5 17l.9-5L4.8 8.3l5-.7z"></path></svg></span><button type="button" onClick="{{ toggleRe }}" aria-label="Prikaži tretmane" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ reRot }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button></div>
+      <h3 style="font-size:20px;margin-bottom:0">Restaurativna i estetska stomatologija</h3>
+      <div style="display:{{ reDisplay }};margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,58,42,.12);gap:8px;grid-template-columns:1fr">
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Beljenje zuba laserom</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Kućno beljenje zuba</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Beljenje avitalnog zuba</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Lečenje kanala korena zuba</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Kompozitne plombe</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#fff;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Nakit za zube</a>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:28px;color:#123a2a;min-height:196px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px"><span style="width:46px;height:46px;border-radius:14px;background:#e6f4eb;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><path d="M9 10h.01M15 10h.01M8.5 14.5a5 5 0 0 0 7 0"></path></svg></span><button type="button" onClick="{{ togglePv }}" aria-label="Prikaži tretmane" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ pvRot }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button></div>
+      <h3 style="font-size:20px;margin-bottom:0">Preventivna i dečija stomatologija</h3>
+      <div style="display:{{ pvDisplay }};margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,58,42,.12);gap:8px;grid-template-columns:1fr">
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Prvi pregled kod stomatologa</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Zalivanje fisura zuba</a>
+        <a href="#usluge" class="sub-link" style="display:block;background:#f2f8f4;border-radius:12px;padding:11px 16px;font-size:14.5px;font-weight:500;color:#123a2a">Uklanjanje mekih naslaga</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galerija" class="pad" style="max-width:1240px;margin:0 auto;padding:72px 32px 24px">
+  <div class="two" style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:30px">
+    <div>
+      <h2 class="h2" style="font-size:38px;max-width:20ch;margin-bottom:10px">Klinika na preko 700 m²</h2>
+      <p style="font-size:16px;color:#5c7268;max-width:52ch;margin:0">Trinaest ordinacija, sopstvena laboratorija i prostor koji je projektovan tako da čekanje ne bude neprijatno.</p>
+    </div>
+    <a href="galerija.html#galerija" class="btn-w" style="display:inline-flex;align-items:center;background:#fff;color:#123a2a;font-size:14.5px;font-weight:500;padding:14px 24px;border-radius:999px;box-shadow:0 4px 18px rgba(18,58,42,.06);white-space:nowrap;justify-self:start">Cela galerija →</a>
+  </div>
+  <div class="rail" style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(400px,1fr);gap:20px;overflow-x:auto;padding-bottom:12px">
+    <img src="uploads/photos-1786532946937-77z3.webp" alt="Recepcija Dental Plaza" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+    <img src="uploads/photos-1786532913675-x2cu.webp" alt="Glavna čekaonica" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+    <img src="uploads/photos-1786532907220-gqii.webp" alt="Ordinacija, sala 2" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+    <img src="uploads/photos-1786532907230-kije.webp" alt="Glavni hodnik klinike" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+    <img src="uploads/photos-1786532947854-d0h8.webp" alt="Ordinacija, sala 3" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+    <img src="uploads/photos-1786532907212-hy1l.webp" alt="Lekarska soba" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+    <img src="uploads/photos-1786532945292-wy8g.webp" alt="Hodnik i čekaonica" style="height:380px;width:100%;object-fit:cover;border-radius:22px">
+  </div>
+</section>
+
+<section id="zakazivanje" class="pad" style="max-width:1240px;margin:0 auto;padding:72px 32px 24px">
+  <div class="two" style="display:grid;grid-template-columns:1fr 1.1fr;background:#e6f4eb;border-radius:28px;overflow:hidden;align-items:stretch">
+    <div style="position:relative;min-height:400px">
+      <img src="uploads/photos-1786532949398-em5u.webp" alt="Lekarska soba Dental Plaza" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    </div>
+    <div style="padding:52px 48px">
+      <h2 class="h2" style="font-size:36px;max-width:18ch;margin-bottom:14px">Niste sigurni koja vam usluga treba?</h2>
+      <p style="font-size:16px;color:#476255;max-width:44ch;margin:0 0 28px">Pišite nam, call centar radi svakog dana od 08 do 21h, na telefon, WhatsApp i Viber. Predlog terapije dobijate posle pregleda, u pisanom obliku.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px">
+        <a href="https://api.whatsapp.com/send?phone=381638004400" target="_blank" rel="noopener" class="btn-g" style="display:inline-flex;align-items:center;gap:9px;background:#3cab59;color:#fff;font-size:15px;font-weight:500;padding:15px 26px;border-radius:999px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+          WhatsApp
+        </a>
+        <a href="viber://chat?number=%2B381638004400" class="btn-w" style="display:inline-flex;align-items:center;gap:9px;background:#fff;color:#123a2a;font-size:15px;font-weight:500;padding:15px 26px;border-radius:999px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5c0-1 1-2 2-2h2l2 5-2.5 1.5a12 12 0 0 0 5 5L14 12l5 2v2c0 1-1 2-2 2A15 15 0 0 1 4 5z"></path></svg>
+          Viber
+        </a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="tel:+381638004400" style="background:#fff;border-radius:999px;padding:11px 20px;font-size:15px;font-weight:500;color:#123a2a">+381 63 800 44 00</a>
+        <a href="tel:+381694400055" style="background:#fff;border-radius:999px;padding:11px 20px;font-size:15px;font-weight:500;color:#123a2a">+381 69 44 000 55</a>
+        <a href="tel:+381695501010" style="background:#fff;border-radius:999px;padding:11px 20px;font-size:15px;font-weight:500;color:#123a2a">+381 69 550 10 10</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="pad" style="max-width:1240px;margin:0 auto;padding:72px 32px 24px">
+  <div class="two" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:stretch">
+    <div style="background:#fff;border-radius:26px;padding:36px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <h2 class="h2" style="font-size:32px;max-width:14ch;margin-bottom:24px">Skenderbegova 3, Beograd</h2>
+      <div style="display:grid;gap:20px">
+        <div>
+          <div style="font-size:12.5px;color:#8aa094;margin-bottom:4px">Adresa</div>
+          <a href="http://maps.google.com/?q=Skenderbegova 3 Beograd" target="_blank" rel="noopener" style="font-size:16px;font-weight:500;color:#123a2a">Skenderbegova 3, 11000 Beograd →</a>
+        </div>
+        <div>
+          <div style="font-size:12.5px;color:#8aa094;margin-bottom:6px">Telefoni, WhatsApp i Viber</div>
+          <div style="display:grid;gap:4px">
+            <a href="tel:+381638004400" style="font-size:16px;font-weight:500;color:#123a2a">+381 63 800 44 00</a>
+            <a href="tel:+381694400055" style="font-size:16px;font-weight:500;color:#123a2a">+381 69 44 000 55</a>
+            <a href="tel:+381695501010" style="font-size:16px;font-weight:500;color:#123a2a">+381 69 550 10 10</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;color:#8aa094;margin-bottom:4px">Radno vreme</div>
+          <div style="font-size:15px;color:#5c7268">Radnim danima 9 do 17h · Četvrtkom 11 do 19h<br>Subotom 8 do 16h · Call centar 8 do 21h</div>
+        </div>
+      </div>
+      <a href="#zakazivanje" class="btn-g" style="display:inline-flex;align-items:center;gap:9px;margin-top:28px;background:#3cab59;color:#fff;font-size:15px;font-weight:500;padding:15px 26px;border-radius:999px">
+        Pozovite nas
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+    <div style="border-radius:26px;overflow:hidden;min-height:480px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <iframe title="Dental Plaza na mapi" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.8525691410778!2d20.457275275041354!3d44.824568075889864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a654ae039b1c3%3A0xcc45d9a37f766498!2sDental%20Plaza!5e0!3m2!1sen!2srs!4v1687341266041!5m2!1sen!2srs" style="width:100%;height:100%;min-height:480px;border:0;display:block" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="pad" style="max-width:1240px;margin:0 auto;padding:56px 32px 40px">
+  <div class="two" style="display:grid;grid-template-columns:1.3fr 1fr;gap:40px;background:#fff;border-radius:28px;padding:44px 44px 32px">
+    <div>
+      <img src="assets/logo.png" alt="Dental Plaza" style="height:34px;width:auto;margin-bottom:18px">
+      <p style="font-size:15px;color:#5c7268;max-width:38ch;margin:0 0 22px">Klinika za savremenu i estetsku stomatologiju. Skenderbegova 3, 11000 Beograd.</p>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+        <a href="https://www.facebook.com/dentalplaza.rs/" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">Facebook</a>
+        <a href="https://www.instagram.com/dentalplazacentar/" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">Instagram</a>
+        <a href="https://www.youtube.com/channel/UC1E2eDKf-V7pz7bhwEEfmsQ" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">YouTube</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div style="display:grid;gap:9px;align-content:start">
+        <div style="font-size:12.5px;color:#8aa094">Stranice</div>
+        <a href="#usluge" class="lnk" style="font-size:14.5px;color:#123a2a">Usluge</a>
+        <a href="o-nama.html" class="lnk" style="font-size:14.5px;color:#123a2a">O nama</a>
+        <a href="galerija.html#galerija" class="lnk" style="font-size:14.5px;color:#123a2a">Galerija</a>
+        <a href="cenovnik.html#cenovnik" class="lnk" style="font-size:14.5px;color:#123a2a">Cenovnik</a>
+        <a href="#kontakt" class="lnk" style="font-size:14.5px;color:#123a2a">Kontakt</a>
+      </div>
+      <div style="display:grid;gap:9px;align-content:start">
+        <div style="font-size:12.5px;color:#8aa094">Pozovite</div>
+        <a href="tel:+381638004400" class="lnk" style="font-size:14.5px;color:#123a2a">+381 63 800 44 00</a>
+        <a href="tel:+381694400055" class="lnk" style="font-size:14.5px;color:#123a2a">+381 69 44 000 55</a>
+        <a href="tel:+381695501010" class="lnk" style="font-size:14.5px;color:#123a2a">+381 69 550 10 10</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:22px 8px 0;font-size:12.5px;color:#8aa094">© 2026 Dental Plaza. Sva prava zadržana.</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { t: 0, menu: false, sent: false, imp: false, oh: false, pr: false, pd: false, re: false, pv: false };
+  startCount() {
+    if (this._timer) return;
+    const dur = 3000, t0 = Date.now();
+    this._timer = setInterval(() => {
+      const p = Math.min(1, (Date.now() - t0) / dur);
+      this.setState({ t: 1 - Math.pow(1 - p, 3) });
+      if (p >= 1) { clearInterval(this._timer); this._timer = -1; }
+    }, 40);
+  }
+  componentDidMount() { this.startCount(); }
+  componentWillUnmount() { if (this._timer > 0) clearInterval(this._timer); }
+
+  renderVals() {
+    if (!this._timer) setTimeout(() => this.startCount(), 0);
+    const t = this.state.t;
+    const cnt = (n) => Math.round(n * t);
+    return {
+      stat1: cnt(27),
+      stat2: cnt(13),
+      stat3: cnt(700) + ' m²',
+      stat4: cnt(15000).toLocaleString('de-DE') + '+',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      menuDisplay: this.state.menu ? 'block' : 'none',
+      toggleImp: () => this.setState(s => ({ imp: !s.imp })),
+      impDisplay: this.state.imp ? 'grid' : 'none',
+      impRot: this.state.imp ? 135 : 0,
+      toggleOh: () => this.setState(s => ({ oh: !s.oh })),
+      ohDisplay: this.state.oh ? 'grid' : 'none',
+      ohRot: this.state.oh ? 135 : 0,
+      togglePr: () => this.setState(s => ({ pr: !s.pr })),
+      prDisplay: this.state.pr ? 'grid' : 'none',
+      prRot: this.state.pr ? 135 : 0,
+      togglePd: () => this.setState(s => ({ pd: !s.pd })),
+      pdDisplay: this.state.pd ? 'grid' : 'none',
+      pdRot: this.state.pd ? 135 : 0,
+      toggleRe: () => this.setState(s => ({ re: !s.re })),
+      reDisplay: this.state.re ? 'grid' : 'none',
+      reRot: this.state.re ? 135 : 0,
+      togglePv: () => this.setState(s => ({ pv: !s.pv })),
+      pvDisplay: this.state.pv ? 'grid' : 'none',
+      pvRot: this.state.pv ? 135 : 0,
+      sentDisplay: this.state.sent ? 'block' : 'none',
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

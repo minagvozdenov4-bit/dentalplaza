@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-8567fc43-f816-4cf2-960a-752b7c6c2fcd/styles.css">
+<script src="_ds/modernist-8567fc43-f816-4cf2-960a-752b7c6c2fcd/_ds_bundle.js"></script>
+<script src="./page-fx.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f2f8f4;color:#123a2a;font-family:"Poppins",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Poppins",system-ui,sans-serif;font-weight:600;letter-spacing:-.015em;line-height:1.18;margin:0}
+a{color:#237038;text-decoration:none}
+a:hover{color:#17492a}
+button{font-family:"Poppins",system-ui,sans-serif}
+button:focus-visible,a:focus-visible{outline:2px solid #3cab59;outline-offset:2px}
+.lnk:hover{color:#3cab59}
+.btn-g:hover{background:#2f8b48 !important}
+.btn-w:hover{background:#f2f8f4 !important}
+.stack{cursor:pointer}
+.stack .ph{transition:transform .38s cubic-bezier(.2,.8,.25,1),box-shadow .38s ease}
+.stack:hover .p3{transform:rotate(-7deg) translate(-26px,10px)}
+.stack:hover .p2{transform:rotate(4.5deg) translate(20px,4px)}
+.stack:hover .p1{transform:translateY(-8px) scale(1.015);box-shadow:0 26px 60px rgba(18,58,42,.22)}
+.stack:hover .cta{background:#3cab59 !important;color:#fff !important}
+.nav-b:hover{background:#3cab59 !important;border-color:#3cab59 !important}
+.thumb:hover{opacity:1 !important}
+@media(max-width:960px){
+ header{padding-top:30px !important}
+ header .pad > div:first-child{padding:8px 8px 8px 14px !important;gap:10px !important;justify-content:space-between}
+ header .pad > div:first-child > a.btn-g{padding:11px 16px !important;font-size:13.5px !important;white-space:nowrap;line-height:1.2}
+ .navlinks{display:none !important}
+ .burger{display:inline-flex !important}
+ .pad{padding-left:20px !important;padding-right:20px !important}
+ .grid2{grid-template-columns:1fr !important}
+ .h1{font-size:38px !important}
+ .two{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<div style="background:#f2f8f4;color:#123a2a;font-family:'Poppins',system-ui,sans-serif;min-height:100vh">
+
+<header style="position:sticky;top:0;z-index:120;background:rgba(242,248,244,.92);backdrop-filter:blur(10px);padding:14px 0">
+  <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="background:#fff;border-radius:999px;box-shadow:0 6px 24px rgba(18,58,42,.07);padding:10px 12px 10px 24px;display:flex;align-items:center;gap:24px">
+      <a href="index.html#pocetna" style="display:flex;align-items:center;flex:none"><img src="assets/logo.png" alt="Dental Plaza" style="height:30px;width:auto"></a>
+      <nav class="navlinks" style="display:flex;align-items:center;justify-content:center;gap:28px;flex:1">
+        <a href="index.html#pocetna" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Početna</a>
+        <a href="index.html#usluge" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Usluge</a>
+        <a href="o-nama.html" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">O nama</a>
+        <a href="#galerija" class="lnk" style="font-size:14.5px;font-weight:600;color:#237038">Galerija</a>
+        <a href="cenovnik.html#cenovnik" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Cenovnik</a>
+        <a href="index.html#kontakt" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Kontakt</a>
+      </nav>
+      <a href="index.html#zakazivanje" class="btn-g" style="flex:none;background:#3cab59;color:#fff;font-size:14px;font-weight:500;padding:12px 22px;border-radius:999px">Pozovite nas</a>
+      <button type="button" class="burger" onClick="{{ toggleMenu }}" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:#eef6f1;border:0;cursor:pointer;flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#123a2a" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </div>
+    <div style="display:{{ menuDisplay }};background:#fff;border-radius:22px;box-shadow:0 12px 32px rgba(18,58,42,.10);margin-top:10px;padding:10px 18px">
+      <a href="index.html#pocetna" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Početna</a>
+      <a href="index.html#usluge" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Usluge</a>
+      <a href="o-nama.html" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">O nama</a>
+      <a href="#galerija" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Galerija</a>
+      <a href="cenovnik.html#cenovnik" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Cenovnik</a>
+      <a href="index.html#kontakt" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<section id="galerija" class="pad" style="max-width:1240px;margin:0 auto;padding:56px 32px 20px">
+  <div class="two" style="display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:44px">
+    <div>
+      <div style="display:inline-block;background:#e6f4eb;color:#237038;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:500;margin-bottom:16px">Galerija</div>
+      <h1 class="h1" style="font-size:46px;max-width:18ch;margin-bottom:12px">Pogledajte kliniku iznutra</h1>
+      <p style="font-size:16px;color:#5c7268;max-width:56ch;margin:0">Kliknite na bilo koji snop fotografija i listajte ga strelicama ili prevlačenjem.</p>
+    </div>
+    <div style="font-size:13px;color:#8aa094;padding-bottom:8px">12 fotografija · 4 prostora</div>
+  </div>
+
+  <div class="grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:64px 56px;padding-bottom:40px">
+
+    <div class="stack" onClick="{{ open0 }}" style="position:relative;padding:14px 34px 0">
+      <div style="position:relative;aspect-ratio:3/2">
+        <img class="ph p3" src="uploads/50504-002-a607aea7.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(-4deg) translate(-10px,6px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p2" src="uploads/70985-003-2ac6a234.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(2.5deg) translate(8px,3px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p1" src="uploads/51203-001-d5573d4b.webp" alt="Glavna čekaonica" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;box-shadow:0 16px 44px rgba(18,58,42,.16)">
+        <div style="position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.94);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em">4 fotografije</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px">
+        <h3 style="font-size:22px">Glavna čekaonica</h3>
+        <span class="cta" style="background:#fff;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;transition:background .2s ease,color .2s ease">Listaj →</span>
+      </div>
+    </div>
+
+    <div class="stack" onClick="{{ open1 }}" style="position:relative;padding:14px 34px 0">
+      <div style="position:relative;aspect-ratio:3/2">
+        <img class="ph p3" src="uploads/27665-03-6b7c9d6d.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(3.5deg) translate(10px,6px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p2" src="uploads/87630-02-57ec8381.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(-2.5deg) translate(-8px,3px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p1" src="uploads/82627-04-c0943cfa.webp" alt="Glavni hodnik" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;box-shadow:0 16px 44px rgba(18,58,42,.16)">
+        <div style="position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.94);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em">3 fotografije</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px">
+        <h3 style="font-size:22px">Glavni hodnik</h3>
+        <span class="cta" style="background:#fff;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;transition:background .2s ease,color .2s ease">Listaj →</span>
+      </div>
+    </div>
+
+    <div class="stack" onClick="{{ open2 }}" style="position:relative;padding:14px 34px 0">
+      <div style="position:relative;aspect-ratio:3/2">
+        <img class="ph p3" src="uploads/91625-03-4463b30f.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(-3.5deg) translate(-10px,6px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p2" src="uploads/91500-02-b4ad9fe1.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(3deg) translate(9px,3px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p1" src="uploads/35102-01-184292e0.webp" alt="Ordinacije" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;box-shadow:0 16px 44px rgba(18,58,42,.16)">
+        <div style="position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.94);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em">3 fotografije</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px">
+        <h3 style="font-size:22px">Ordinacije</h3>
+        <span class="cta" style="background:#fff;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;transition:background .2s ease,color .2s ease">Listaj →</span>
+      </div>
+    </div>
+
+    <div class="stack" onClick="{{ open3 }}" style="position:relative;padding:14px 34px 0">
+      <div style="position:relative;aspect-ratio:3/2">
+        <img class="ph p3" src="uploads/lekarska-soba-2.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(-3deg) translate(-10px,6px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p2" src="uploads/lekarska-soba-2.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;transform:rotate(2deg) translate(8px,3px);box-shadow:0 10px 30px rgba(18,58,42,.10)">
+        <img class="ph p1" src="uploads/96140-02-ad39e2c2.webp" alt="Lekarska soba" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;box-shadow:0 16px 44px rgba(18,58,42,.16)">
+        <div style="position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.94);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;letter-spacing:.02em">2 fotografije</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px">
+        <h3 style="font-size:22px">Lekarska soba</h3>
+        <span class="cta" style="background:#fff;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;transition:background .2s ease,color .2s ease">Listaj →</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="pad" style="max-width:1240px;margin:0 auto;padding:36px 32px 40px">
+  <div class="two" style="display:grid;grid-template-columns:1.3fr 1fr;gap:40px;background:#fff;border-radius:28px;padding:44px 44px 32px">
+    <div>
+      <img src="assets/logo.png" alt="Dental Plaza" style="height:34px;width:auto;margin-bottom:18px">
+      <p style="font-size:15px;color:#5c7268;max-width:38ch;margin:0 0 22px">Klinika za savremenu i estetsku stomatologiju. Skenderbegova 3, 11000 Beograd.</p>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+        <a href="https://www.facebook.com/dentalplaza.rs/" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">Facebook</a>
+        <a href="https://www.instagram.com/dentalplazacentar/" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">Instagram</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div style="display:grid;gap:9px;align-content:start">
+        <div style="font-size:12.5px;color:#8aa094">Stranice</div>
+        <a href="index.html#usluge" class="lnk" style="font-size:14.5px;color:#123a2a">Usluge</a>
+        <a href="o-nama.html" class="lnk" style="font-size:14.5px;color:#123a2a">O nama</a>
+        <a href="#galerija" class="lnk" style="font-size:14.5px;color:#123a2a">Galerija</a>
+        <a href="cenovnik.html#cenovnik" class="lnk" style="font-size:14.5px;color:#123a2a">Cenovnik</a>
+        <a href="index.html#kontakt" class="lnk" style="font-size:14.5px;color:#123a2a">Kontakt</a>
+      </div>
+      <div style="display:grid;gap:9px;align-content:start">
+        <div style="font-size:12.5px;color:#8aa094">Pozovite</div>
+        <a href="tel:+381638004400" class="lnk" style="font-size:14.5px;color:#123a2a">+381 63 800 44 00</a>
+        <a href="tel:+381694400055" class="lnk" style="font-size:14.5px;color:#123a2a">+381 69 44 000 55</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:22px 8px 0;font-size:12.5px;color:#8aa094">© 2026 Dental Plaza. Sva prava zadržana.</div>
+</footer>
+
+<div style="display:{{ lbDisplay }};position:fixed;inset:0;z-index:400;background:rgba(10,26,19,.93);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:28px" onClick="{{ backdrop }}" onTouchStart="{{ touchStart }}" onTouchEnd="{{ touchEnd }}"><sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ true }}">
+  <button type="button" onClick="{{ close }}" style="position:absolute;top:22px;right:24px;width:46px;height:46px;border-radius:999px;background:rgba(255,255,255,.12);border:0;color:#fff;font-size:20px;cursor:pointer">✕</button>
+  <button type="button" class="nav-b" onClick="{{ prev }}" style="position:absolute;left:24px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:20px;cursor:pointer;transition:background .2s ease">‹</button>
+  <button type="button" class="nav-b" onClick="{{ next }}" style="position:absolute;right:24px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:20px;cursor:pointer;transition:background .2s ease">›</button>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:18px;max-width:1100px;width:100%">
+    <img src="{{ lbSrc }}" alt="{{ lbTitle }}" style="max-width:100%;max-height:70vh;object-fit:contain;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.45)">
+    <div style="display:flex;align-items:center;gap:14px;color:#fff">
+      <span style="font-size:15px;font-weight:500">{{ lbTitle }}</span>
+      <span style="opacity:.55;font-size:13.5px">{{ lbCounter }}</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+      <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="4">
+        <img class="thumb" src="{{ t.src }}" alt="" onClick="{{ t.pick }}" style="width:78px;height:52px;object-fit:cover;border-radius:8px;cursor:pointer;opacity:{{ t.opacity }};outline:{{ t.ring }};outline-offset:2px;transition:opacity .2s ease">
+      </sc-for>
+    </div>
+  </div>
+</sc-if></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const U = 'uploads/';
+const STACKS = [
+  { title: 'Glavna čekaonica', imgs: ['51203-001-d5573d4b.webp','70985-003-2ac6a234.webp','50504-002-a607aea7.webp','67624-004-f5bd05e9.webp'] },
+  { title: 'Glavni hodnik', imgs: ['82627-04-c0943cfa.webp','87630-02-57ec8381.webp','27665-03-6b7c9d6d.webp'] },
+  { title: 'Ordinacije', imgs: ['35102-01-184292e0.webp','91500-02-b4ad9fe1.webp','91625-03-4463b30f.webp'] },
+  { title: 'Lekarska soba', imgs: ['96140-02-ad39e2c2.webp','lekarska-soba-2.webp'] }
+];
+
+class Component extends DCLogic {
+  state = { menu: false, stack: null, idx: 0 };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (this.state.stack === null) return;
+      if (e.key === 'Escape') this.setState({ stack: null });
+      if (e.key === 'ArrowRight') this.step(1);
+      if (e.key === 'ArrowLeft') this.step(-1);
+    };
+    window.addEventListener('keydown', this._key);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); }
+
+  step(d) {
+    const n = STACKS[this.state.stack].imgs.length;
+    this.setState(s => ({ idx: (s.idx + d + n) % n }));
+  }
+  open(i) { this.setState({ stack: i, idx: 0 }); }
+
+  renderVals() {
+    const s = this.state.stack === null ? null : STACKS[this.state.stack];
+    const imgs = s ? s.imgs : [];
+    return {
+      toggleMenu: () => this.setState(x => ({ menu: !x.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      menuDisplay: this.state.menu ? 'block' : 'none',
+      open0: () => this.open(0),
+      open1: () => this.open(1),
+      open2: () => this.open(2),
+      open3: () => this.open(3),
+      close: () => this.setState({ stack: null }),
+      prev: () => this.step(-1),
+      next: () => this.step(1),
+      lbDisplay: s ? 'flex' : 'none',
+      lbOpen: !!s,
+      backdrop: (e) => { if (e.target === e.currentTarget) this.setState({ stack: null }); },
+      touchStart: (e) => { this._tx = e.touches[0].clientX; },
+      touchEnd: (e) => {
+        if (this._tx == null) return;
+        const dx = e.changedTouches[0].clientX - this._tx;
+        this._tx = null;
+        if (Math.abs(dx) > 40) this.step(dx < 0 ? 1 : -1);
+      },
+      lbSrc: s ? U + encodeURIComponent(imgs[this.state.idx]) : '',
+      lbTitle: s ? s.title : '',
+      lbCounter: s ? (this.state.idx + 1) + ' / ' + imgs.length : '',
+      thumbs: imgs.map((f, i) => ({
+        src: U + encodeURIComponent(f),
+        opacity: i === this.state.idx ? 1 : 0.45,
+        ring: i === this.state.idx ? '2px solid #3cab59' : '2px solid transparent',
+        pick: () => this.setState({ idx: i })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

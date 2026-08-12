@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-8567fc43-f816-4cf2-960a-752b7c6c2fcd/styles.css">
+<script src="_ds/modernist-8567fc43-f816-4cf2-960a-752b7c6c2fcd/_ds_bundle.js"></script>
+<script src="./page-fx.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-heading:"Poppins",system-ui,sans-serif;
+  --font-body:"Poppins",system-ui,sans-serif;
+  --font-heading-weight:600;
+  --color-bg:#f2f8f4;
+  --color-surface:#ffffff;
+  --color-text:#123a2a;
+  --color-accent:#3cab59;
+  --color-accent-700:#237038;
+  --radius-md:20px;
+}
+body{margin:0;background:#f2f8f4;color:#123a2a;font-family:"Poppins",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:"Poppins",system-ui,sans-serif;font-weight:600;letter-spacing:-.015em;line-height:1.18;margin:0}
+a{color:#237038;text-decoration:none}
+a:hover{color:#17492a}
+input,select,textarea,button{font-family:"Poppins",system-ui,sans-serif}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #3cab59;outline-offset:2px}
+input::placeholder,textarea::placeholder{color:#9bb0a4}
+.lnk:hover{color:#3cab59}
+.card-lift{transition:transform .22s ease,box-shadow .22s ease}
+.card-lift:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(18,58,42,.10)}
+.card-lift:hover .svc-arrow{background:#3cab59;border-color:#3cab59}
+.card-lift:hover .svc-arrow svg{stroke:#fff}
+.sub-link:hover{background:#3cab59 !important;color:#fff !important}
+.btn-g{transition:background .18s ease}
+.btn-g:hover{background:#2f8b48 !important}
+.btn-w:hover{background:#f2f8f4 !important}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+details[open] .plus{transform:rotate(45deg)}
+details[open].faq-row{box-shadow:0 10px 30px rgba(18,58,42,.08)}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-thumb{background:#cfe8d8;border-radius:8px}
+@media(max-width:960px){
+ header{padding-top:30px !important}
+ header .pad > div:first-child{padding:8px 8px 8px 14px !important;gap:10px !important;justify-content:space-between}
+ header .pad > div:first-child > a.btn-g{padding:11px 16px !important;font-size:13.5px !important;white-space:nowrap;line-height:1.2}
+ .two{grid-template-columns:1fr !important}
+ .g2{grid-template-columns:1fr !important}
+ .g3{grid-template-columns:1fr 1fr !important}
+ .g4{grid-template-columns:1fr 1fr !important}
+ .navlinks{display:none !important}
+ .burger{display:inline-flex !important}
+ .pad{padding-left:20px !important;padding-right:20px !important}
+ .h1{font-size:38px !important}
+ .h2{font-size:28px !important}
+ .heroimg{height:300px !important;min-height:0 !important}
+}
+@media(max-width:620px){.g3,.g4{grid-template-columns:1fr !important}}
+</style>
+</helmet>
+
+<div style="background:#f2f8f4;color:#123a2a;font-family:'Poppins',system-ui,sans-serif">
+
+<header style="position:sticky;top:0;z-index:120;background:rgba(242,248,244,.92);backdrop-filter:blur(10px);padding:14px 0">
+  <div class="pad" style="max-width:1240px;margin:0 auto;padding:0 32px">
+    <div style="background:#fff;border-radius:999px;box-shadow:0 6px 24px rgba(18,58,42,.07);padding:10px 12px 10px 24px;display:flex;align-items:center;gap:24px">
+      <a href="index.html#pocetna" style="display:flex;align-items:center;flex:none"><img src="assets/logo.png" alt="Dental Plaza" style="height:30px;width:auto"></a>
+      <nav class="navlinks" style="display:flex;align-items:center;justify-content:center;gap:28px;flex:1">
+        <a href="index.html#pocetna" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Početna</a>
+        <a href="index.html#usluge" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Usluge</a>
+        <a href="#o-nama" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">O nama</a>
+        <a href="galerija.html#galerija" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Galerija</a>
+        <a href="cenovnik.html#cenovnik" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Cenovnik</a>
+        <a href="index.html#kontakt" class="lnk" style="font-size:14.5px;font-weight:500;color:#123a2a">Kontakt</a>
+      </nav>
+      <a href="index.html#zakazivanje" class="btn-g" style="flex:none;background:#3cab59;color:#fff;font-size:14px;font-weight:500;padding:12px 22px;border-radius:999px">Pozovite nas</a>
+      <button type="button" class="burger" onClick="{{ toggleMenu }}" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:#eef6f1;border:0;cursor:pointer;flex:none">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#123a2a" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </div>
+    <div style="display:{{ menuDisplay }};background:#fff;border-radius:22px;box-shadow:0 12px 32px rgba(18,58,42,.10);margin-top:10px;padding:10px 18px">
+      <a href="index.html#pocetna" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Početna</a>
+      <a href="index.html#usluge" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Usluge</a>
+      <a href="#o-nama" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">O nama</a>
+      <a href="galerija.html#galerija" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Galerija</a>
+      <a href="cenovnik.html#cenovnik" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Cenovnik</a>
+      <a href="index.html#kontakt" onClick="{{ closeMenu }}" style="display:block;padding:13px 0;color:#123a2a;font-weight:500">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<section id="o-nama" class="pad" style="max-width:1240px;margin:0 auto;padding:56px 32px 24px">
+  <div style="margin-bottom:30px">
+    <div style="display:inline-block;background:#e6f4eb;color:#237038;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:500;margin-bottom:16px">O nama</div>
+    <h2 class="h2" style="font-size:38px;max-width:20ch;margin-bottom:10px">10 razloga zašto izabrati Dental Plazu</h2>
+    <p style="font-size:16px;color:#5c7268;max-width:56ch;margin:0">Sve što je pacijentu potrebno nalazi se u istoj zgradi: dijagnostika, terapija i izrada nadoknada.</p>
+  </div>
+  <img src="uploads/tim-klinike.png" alt="Tim klinike Dental Plaza" style="width:100%;border-radius:24px;display:block;margin-bottom:28px">
+  <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start">
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">1</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što je lider u dentalnom turizmu u Srbiji i jedna od najvećih dentalnih klinika u regionu.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">2</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što pratimo poslednje svetske novitete i trendove u stomatologiji.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">3</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što koristimo kompjuterizovanu anesteziju, svesnu sedaciju i dentalni laser za maksimalnu bezbolnost pri intervencijama.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">4</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što smo jedna od najbrže rastućih klinika u Evropi.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">5</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što dajemo doživotnu garanciju na ugrađene implante.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">6</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što posedujemo najsavremeniji 3D rendgen za najprecizniji plan ugradnje implanata.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">7</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što smo specijalizovani za rešavanje najkomplikovanijih slučajeva u stomatologiji.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">8</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što imamo sopstvenu zubotehničku laboratoriju, što nam daje nenadmašan kvalitet i najkraće rokove.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">9</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što smo klinika sa najvećim brojem stalno zaposlenih stomatologa.</p>
+        </div>
+        <div style="display:flex;gap:16px;background:#fff;border-radius:20px;padding:20px 22px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+          <span style="width:34px;height:34px;border-radius:999px;background:#e6f4eb;color:#237038;font-size:14.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none">10</span>
+          <p style="font-size:15px;color:#5c7268;margin:0;padding-top:4px">Zato što smo klinika sa kompletnom organizacijom na jednom mestu.</p>
+        </div>
+  </div>
+</section>
+
+<section id="radovi" class="pad" style="max-width:1240px;margin:0 auto;padding:56px 32px 24px">
+  <div style="margin-bottom:30px">
+    <div style="display:inline-block;background:#e6f4eb;color:#237038;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:500;margin-bottom:16px">Naši radovi</div>
+    <h2 class="h2" style="font-size:38px;max-width:20ch;margin-bottom:10px">Galerija osmeha</h2>
+    <p style="font-size:16px;color:#5c7268;max-width:60ch;margin:0">Fotografije su snimljene u klinici, uz saglasnost pacijenata. Prikazani su stvarni slučajevi; svaki plan terapije je individualan i definiše se posle pregleda.</p>
+  </div>
+  <div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532907160-95x0.webp" alt="Kompletna rehabilitacija bezube vilice, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Kompletna rehabilitacija bezube vilice</h3>
+        <button type="button" onClick="{{ toggleC1 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot1 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay1 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Prilikom javljanja na našu kliniku pacijentkinja je imala po nekoliko parodontopatičnih zuba u obe vilice, čime joj je bilo onemogućeno normalno funkcionisanje. Ustanovljeno je da je neophodna ekstrakcija postojećih zuba i ugradnja implantata. U prvoj fazi u gornju i donju vilicu ugrađeno je po 6 implantata, odnosno primenjen je All on 6 koncept. U drugoj fazi, uradili smo metalo-keramičke krune i time vratili osmeh i samopouzdanje našoj pacijentkinji.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532907175-gnd3.webp" alt="Estetska rekonstrukcija prednjih zuba, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Estetska rekonstrukcija prednjih zuba</h3>
+        <button type="button" onClick="{{ toggleC2 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot2 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay2 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Kada je došla kod nas, pacijentkinja je želela da poboljša izgled svojih zuba. Bočni zubi koji su nedostajali nadomešćeni su ugradnjom po dva implantata sa obe strane u gornjoj, a isto tako i u donjoj vilici. U gornjoj vilici cirkonijum keramičkim krunama korigovali smo izgled zuba, dok smo se u donjoj vilici odlučili za izbeljivanje postojećih i ugradnju implantata na mestima nedostajućih zuba. Ovim je pacijentkinja dobila pun zubni niz u obe vilice, usklađenu boju, kao i oblik zuba.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532912678-x032.webp" alt="Korekcija oblika i boje osmeha, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Korekcija oblika i boje osmeha</h3>
+        <button type="button" onClick="{{ toggleC3 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot3 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay3 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Ova mlada pacijentkinja je došla kod nas nezadovoljna estetikom svojih zuba. Laserskom nivelacijom u gornjoj vilici smo korigovali oblik desni i uradili cirkonijum-keramičke krunice kojima smo postigli odlične rezultate. Na ostalim zubima urađeno je lasersko beljenje kako bi se u potpunosti uklopili sa novim krunicama.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532913690-3xnm.webp" alt="Keramički viniri gornje vilice, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Keramički viniri gornje vilice</h3>
+        <button type="button" onClick="{{ toggleC4 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot4 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay4 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Pacijentkinja se javila na našu kliniku u cilju saniranja postojećeg stanja zuba i dobijanja skladnog i lepog osmeha. U ovom slučaju, nakon pregleda i dogovora sa pacijentkinjom dogovoreno je da se u donjoj vilici sa desne strane ugradi jedan, a sa leve strane dva implantata kako bi se nadoknadili izgubljeni zubi, a zatim su u drugoj poseti urađene metalo-keramičke krune na svim zubima. Rezultat terapije je besprekoran zubni niz koji doprinosi celokupnom izgledu i funkciji, ali i samopouzdanju.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532951551-u032.webp" alt="Nadoknada izgubljenih zuba, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Nadoknada izgubljenih zuba</h3>
+        <button type="button" onClick="{{ toggleC5 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot5 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay5 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Pacijent je došao na kliniku sa željom da nadoknadi zube koji nedostaju, kao i da postojeće sredi. Odlučili smo se za ugradnju implantata u prvoj fazi, i to 5 implantata u gornju i 5 u donju vilicu, dok su u drugoj fazi urađene metalo-keramičke krune na svim zubima i implantatima. Ovim smo vratili pacijentu osmeh na lice, kao i sklad i neometano funkcionisanje sa novim zubima.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532952758-xjhv.webp" alt="Sanacija i estetska rekonstrukcija, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Sanacija i estetska rekonstrukcija</h3>
+        <button type="button" onClick="{{ toggleC6 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot6 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay6 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Sa željom da unapredi zdravlje i izgled svojih zuba i reši problem otežanog funkcionisanja sa zubima koji su se klatili, pacijent je od naših doktora potražio rešenje. Nakon napravljenog plana terapije, odlučili smo se da u prvom delu terapije izvadimo zube koji su bili za to i na odgovarajuće pozicije ugradimo implantate. U donjoj vilici sa po dva implantata sa obe strane kompletirali smo zubni niz. Protetska rehabilitacija podrazumevala je izradu cirkonijum-keramičkih kruna na svim zubima. Rezultat je skladan zagrižaj i lep osmeh.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532954008-j0zw.webp" alt="Korekcija linije osmeha, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Korekcija linije osmeha</h3>
+        <button type="button" onClick="{{ toggleC7 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot7 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay7 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Pacijentkinja je došla kod nas nezadovoljna izgledom svojih zuba. U donjoj vilici nedostajali su bočni zubi koje smo nadoknadili ugradnjom 6 implantata i izradom krunica na njima. Na ostalim zubima urađene su metalo-keramičke krunice. Pacijentkinja je zadovoljna rezultatima terapije, celokupnim izgledom i komforom sa novim zubima.</p>
+      </div>
+    </div>
+    <div class="card-lift" style="background:#fff;border-radius:24px;padding:14px;box-shadow:0 4px 18px rgba(18,58,42,.05)">
+      <img src="uploads/photos-1786532956078-czvf.webp" alt="Totalna rehabilitacija, pre i posle" style="width:100%;border-radius:16px;display:block">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 10px 8px">
+        <h3 style="font-size:18px;margin:0">Totalna rehabilitacija</h3>
+        <button type="button" onClick="{{ toggleC8 }}" aria-label="Prikaži opis slučaja" class="svc-arrow" style="width:38px;height:38px;border-radius:999px;border:1px solid rgba(60,171,89,.35);background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .18s ease,border-color .18s ease,transform .2s ease;transform:rotate({{ cRot8 }}deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3cab59" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"></path></svg></button>
+      </div>
+      <div style="display:{{ cDisplay8 }};margin:0 10px 10px;padding-top:14px;border-top:1px solid rgba(18,58,42,.12)">
+        <p style="font-size:14.5px;color:#5c7268;margin:0">Kada je došao kod nas, pacijent je nosio gornju i donju totalnu protezu, ali je želeo bolje i udobnije rešenje. Nakon pregleda uz analizu 3D snimka, plan terapije je podrazumevao primenu All on 6 koncepta u obe vilice. Ugrađeno je ukupno 12 implantata (6 implantata po vilici) na kojima su u drugoj fazi izrađene metalo keramičke krunice. Pacijent je dobio neuporedivo komfornije rešenje uz sjajne estetske rezultate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pad" style="max-width:1240px;margin:0 auto;padding:56px 32px 40px">
+  <div class="two" style="display:grid;grid-template-columns:1.3fr 1fr;gap:40px;background:#fff;border-radius:28px;padding:44px 44px 32px">
+    <div>
+      <img src="assets/logo.png" alt="Dental Plaza" style="height:34px;width:auto;margin-bottom:18px">
+      <p style="font-size:15px;color:#5c7268;max-width:38ch;margin:0 0 22px">Klinika za savremenu i estetsku stomatologiju. Skenderbegova 3, 11000 Beograd.</p>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+        <a href="https://www.facebook.com/dentalplaza.rs/" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">Facebook</a>
+        <a href="https://www.instagram.com/dentalplazacentar/" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">Instagram</a>
+        <a href="https://www.youtube.com/channel/UC1E2eDKf-V7pz7bhwEEfmsQ" target="_blank" rel="noopener" class="btn-w" style="background:#f2f8f4;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:#123a2a">YouTube</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div style="display:grid;gap:9px;align-content:start">
+        <div style="font-size:12.5px;color:#8aa094">Stranice</div>
+        <a href="index.html#usluge" class="lnk" style="font-size:14.5px;color:#123a2a">Usluge</a>
+        <a href="#o-nama" class="lnk" style="font-size:14.5px;color:#123a2a">O nama</a>
+        <a href="galerija.html#galerija" class="lnk" style="font-size:14.5px;color:#123a2a">Galerija</a>
+        <a href="cenovnik.html#cenovnik" class="lnk" style="font-size:14.5px;color:#123a2a">Cenovnik</a>
+        <a href="index.html#kontakt" class="lnk" style="font-size:14.5px;color:#123a2a">Kontakt</a>
+      </div>
+      <div style="display:grid;gap:9px;align-content:start">
+        <div style="font-size:12.5px;color:#8aa094">Pozovite</div>
+        <a href="tel:+381638004400" class="lnk" style="font-size:14.5px;color:#123a2a">+381 63 800 44 00</a>
+        <a href="tel:+381694400055" class="lnk" style="font-size:14.5px;color:#123a2a">+381 69 44 000 55</a>
+        <a href="tel:+381695501010" class="lnk" style="font-size:14.5px;color:#123a2a">+381 69 550 10 10</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:22px 8px 0;font-size:12.5px;color:#8aa094">© 2026 Dental Plaza. Sva prava zadržana.</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { menu: false, c1:false, c2:false, c3:false, c4:false, c5:false, c6:false, c7:false, c8:false };
+  renderVals() {
+    return {
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      closeMenu: () => this.setState({ menu: false }),
+      menuDisplay: this.state.menu ? 'block' : 'none',
+      toggleC1: () => this.setState(s => ({ c1: !s.c1 })),
+      cDisplay1: this.state.c1 ? 'block' : 'none',
+      cRot1: this.state.c1 ? 135 : 0,
+      toggleC2: () => this.setState(s => ({ c2: !s.c2 })),
+      cDisplay2: this.state.c2 ? 'block' : 'none',
+      cRot2: this.state.c2 ? 135 : 0,
+      toggleC3: () => this.setState(s => ({ c3: !s.c3 })),
+      cDisplay3: this.state.c3 ? 'block' : 'none',
+      cRot3: this.state.c3 ? 135 : 0,
+      toggleC4: () => this.setState(s => ({ c4: !s.c4 })),
+      cDisplay4: this.state.c4 ? 'block' : 'none',
+      cRot4: this.state.c4 ? 135 : 0,
+      toggleC5: () => this.setState(s => ({ c5: !s.c5 })),
+      cDisplay5: this.state.c5 ? 'block' : 'none',
+      cRot5: this.state.c5 ? 135 : 0,
+      toggleC6: () => this.setState(s => ({ c6: !s.c6 })),
+      cDisplay6: this.state.c6 ? 'block' : 'none',
+      cRot6: this.state.c6 ? 135 : 0,
+      toggleC7: () => this.setState(s => ({ c7: !s.c7 })),
+      cDisplay7: this.state.c7 ? 'block' : 'none',
+      cRot7: this.state.c7 ? 135 : 0,
+      toggleC8: () => this.setState(s => ({ c8: !s.c8 })),
+      cDisplay8: this.state.c8 ? 'block' : 'none',
+      cRot8: this.state.c8 ? 135 : 0,
+    };
+  }
+}
+</script>
+</body>
+</html>
